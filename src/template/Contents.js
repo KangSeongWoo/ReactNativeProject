@@ -28,7 +28,7 @@ const Contents = () => {
 				keyExtractor={item => item.id}
 			/>
 			<TouchableOpacity style={styles.button} onPress={openPopup}>
-				<Icon name="ios-add-outline" size={40} color="black"/>
+				<Icon name="ios-add-outline" size={30} color="white"/>
 			</TouchableOpacity>
 			<MyModal isVisible={isVisible} setIsVisible={setIsVisible} />
 		</View>
@@ -45,14 +45,14 @@ const styles = StyleSheet.create({
 	},
 	button: {
 		position: 'absolute',
-		top: 600,
-		left: 335,
+		bottom: 25,
+		right: 40,
 		borderRadius : 100,
-		backgroundColor : 'white',
+		backgroundColor : '#000000',
 		justifyContent: "center",
 		alignItems: 'center',
 		borderWidth:1,
-		borderColor : 'rgb(205, 210, 215)',
+		borderColor : '#000000',
 		width: 50,
 		height : 50
 	}
