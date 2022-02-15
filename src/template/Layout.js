@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Text, StyleSheet, View, FlatList, Dimensions, Button } from 'react-native';
-import Header from './Header'
-import Contents from './Contents'
-import Footer from './Footer'
+import { NavigationContainer } from '@react-navigation/native'
+import { enableScreens } from 'react-native-screens';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import Navigator from './Navigator'
+
+enableScreens();
 
 const Layout = () => {
 	const [backgroundStyle, setBackgroundStyle] = useState({
@@ -10,20 +14,12 @@ const Layout = () => {
 	});
 	
 	return (
-		<SafeAreaView style={[styles.outer, backgroundStyle]}>
-			<Header />
-			<Contents />
-			{/* <Footer/> */}
-		</SafeAreaView>
+		<SafeAreaProvider>
+			<NavigationContainer>
+				<Navigator/>
+			</NavigationContainer>
+		</SafeAreaProvider>
 	)
 }
-
-const styles = StyleSheet.create({
-  outer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: 'center'
-  },
-});
 
 export default Layout

@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text,StyleSheet, View, FlatList,Dimensions,Button  } from 'react-native';
-
-const Item = ({title,content,date,containerWidth }) => {
-	return (
-    <View style={styles.item}>
-      <View style={styles.title}>
-        <Text>{title}</Text>
-        <Text>{date}</Text>
+import { SafeAreaView, Text,StyleSheet, View, FlatList,Dimensions,Button,TouchableOpacity  } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
+const Item = ({ title, content, date, containerWidth, clickPage }) => {
+  const navigation = useNavigation();
+  const movePage = (clickPage) => {
+    navigation.navigate(clickPage)
+  }
+  return (
+    <TouchableOpacity onPress={() => movePage(clickPage)}>
+      <View style={styles.item}>
+        <View style={styles.title}>
+          <Text>{title}</Text>
+          <Text>{date}</Text>
+        </View>
+        <Text numberOfLines={4} style={styles.content}>{content}</Text>
       </View>
-      <Text numberOfLines={4} style={styles.content}>{content}</Text>
-		</View>
+    </TouchableOpacity>
 	)
 }
 

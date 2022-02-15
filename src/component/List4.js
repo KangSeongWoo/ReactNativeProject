@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, StyleSheet, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
-import MyModal from '../component/MyModal'
-import Item from '../component/Item'
+import MyModal from './MyModal'
+import Item from './Item'
 import { dataList } from '../tempData/data'
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Contents = () => {
+const List4 = () => {
 	const [containerWidth, setContainerWidth] = useState(0);
 	const [isVisible, setIsVisible] = useState(false)
 	const [itemList, setItemList] = useState(dataList);
@@ -16,7 +16,7 @@ const Contents = () => {
 	}
 	
 	const renderItem = ({ item }) => (
-		<Item title={item.title} content={item.content} date={item.date} />
+		<Item title={item.title} content={item.content} date={item.date} clickPage={item.clickPage}/>
 	);
 	
 	return (
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default Contents
+export default List4
