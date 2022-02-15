@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text,StyleSheet, View, FlatList,Dimensions,Button,TouchableOpacity  } from 'react-native';
+import { SafeAreaView, Text,StyleSheet, View, FlatList,Dimensions,Button,TouchableOpacity, Alert  } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 const Item = ({ title, content, date, containerWidth, clickPage }) => {
   const navigation = useNavigation();
