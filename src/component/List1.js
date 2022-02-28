@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, Text, StyleSheet, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 import MyModal from './MyModal'
 import Item from './Item'
 import { dataList } from '../tempData/data'
@@ -7,7 +7,6 @@ import { dataList } from '../tempData/data'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const List1 = () => {
-	const [containerWidth, setContainerWidth] = useState(0);
 	const [isVisible, setIsVisible] = useState(false)
 	const [itemList, setItemList] = useState(dataList);
 	

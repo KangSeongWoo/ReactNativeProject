@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './src/template/Layout';
+import Layout from './src/Template/Layout';
 import 'react-native-gesture-handler';
 
 const App = () => {

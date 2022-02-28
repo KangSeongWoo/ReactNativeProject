@@ -9,10 +9,6 @@ import Navigator from './Navigator'
 enableScreens();
 
 const Layout = () => {
-	const [backgroundStyle, setBackgroundStyle] = useState({
-    backgroundColor: 'white',
-	});
-	
 	return (
 		<SafeAreaProvider>
 			<NavigationContainer>

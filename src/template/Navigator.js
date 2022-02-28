@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import { Text, StyleSheet, View, FlatList, Dimensions, Button } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import List1 from '../component/List1.js';
-import List2 from '../component/List2.js';
-import List3 from '../component/List3.js';
-import List4 from '../component/List4.js';
+import List1 from '../Component/List1.js';
+import List2 from '../Component/List2.js';
+import List3 from '../Component/List3.js';
+import List4 from '../Component/List4.js';
 
 const Stack = createStackNavigator();
 

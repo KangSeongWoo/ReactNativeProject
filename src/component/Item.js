@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { SafeAreaView, Text,StyleSheet, View, FlatList,Dimensions,Button,TouchableOpacity, Alert  } from 'react-native';
+import React from 'react';
+import { Text,StyleSheet, View, TouchableOpacity  } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
-const Item = ({ title, content, date, containerWidth, clickPage }) => {
+const Item = ({ title, content, date, clickPage }) => {
   const navigation = useNavigation();
   const movePage = (clickPage) => {
     navigation.navigate(clickPage)
