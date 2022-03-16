@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal,Animated,Text,View,StyleSheet,Dimensions,TouchableWithoutFeedback,TextInput,Alert,TouchableOpacity} from 'react-native';
 
-const MyModal = ({ isVisible, setIsVisible }) => {
+const Write = ({ isVisible, setIsVisible }) => {
     const closePopup = () => {
         setIsVisible(!isVisible);
     }
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default MyModal
+export default Write

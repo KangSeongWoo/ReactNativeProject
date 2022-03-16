@@ -1,13 +1,9 @@
 import React from 'react';
 import { Text,StyleSheet, View, TouchableOpacity  } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
-const Item = ({ title, content, date, clickPage }) => {
-  const navigation = useNavigation();
-  const movePage = (clickPage) => {
-    navigation.navigate(clickPage)
-  }
+const Item = ({ title, content, date,setIsVisible}) => {
   return (
-    <TouchableOpacity onPress={() => movePage(clickPage)}>
+    <TouchableOpacity onPress={() => setIsVisible(true)}>
       <View style={styles.item}>
         <View style={styles.title}>
           <Text>{title}</Text>
