@@ -13,11 +13,13 @@ target 'myTest' do
   )
 
 
-  pod 'react-native-icons', :path => '../node_modules/react-native-icons'
+  # pod 'react-native-icons', :path => '../node_modules/react-native-icons'
 
-  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+  # pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  # pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  # pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
   target 'myTestTests' do
     inherit! :complete

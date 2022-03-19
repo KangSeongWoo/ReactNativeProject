@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions, FlatList, TouchableOpacity } from 'react-
 import Write from './Write'
 import Detail from './Detail'
 import Item from './Item'
-import { dataList } from '../tempData/data'
+import { dataList } from '../TempData/data'
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
