@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Animated, Pressable, Button, Text, View, StyleSheet, Dimensions, TouchableWithoutFeedback, TextInput, Alert, TouchableOpacity } from 'react-native';
-import CustomButton from './CustomButton'
+import CustomButton from '../CustomComponent/CustomButton'
 
 const Write = ({ isVisible, setIsVisible }) => {
     const closePopup = () => {
