@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Animated, Pressable, Button, Text, View, StyleSheet, Dimensions, TouchableWithoutFeedback, TextInput, Alert, TouchableOpacity } from 'react-native';
+import { ifIphoneX, getBottomSpace } from 'react-native-iphone-x-helper'
 import CustomButton from '../CustomComponent/CustomButton'
 
 const Write = ({ isVisible, setIsVisible }) => {
@@ -13,7 +14,7 @@ const Write = ({ isVisible, setIsVisible }) => {
             animationType={"fade"}
             transparent
             statusBarTranslucent
-		>
+        >
             <Pressable onPress={closePopup} style={{
                 flex:1,
                 backgroundColor: 'rgba(0, 0, 0, 0.4)',
@@ -22,6 +23,11 @@ const Write = ({ isVisible, setIsVisible }) => {
             }}>
                 <View style={{
                     backgroundColor: '#FFFFFF',
+                    ...ifIphoneX({
+                        paddingBottom: getBottomSpace()
+                    }, {
+                        paddingBottom: 0
+                    })
                 }}>
                     <TextInput
                         placeholder='제목을 입력'

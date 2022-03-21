@@ -7,9 +7,9 @@ const Stack = createStackNavigator();
 
 const Navigator = () => {
 	return (
-			<Stack.Navigator initialRouteName='List'>
-				<Stack.Screen name='List' component={List} />
-			</Stack.Navigator> 
+		<Stack.Navigator initialRouteName='List'>
+			<Stack.Screen name='List' component={List} />
+		</Stack.Navigator> 
 	)
 }
 
