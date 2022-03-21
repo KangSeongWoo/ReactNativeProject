@@ -13,7 +13,7 @@ const List = () => {
 	const [itemList, setItemList] = useState(dataList);
 	
 	const openPopup = () => {
-		setIsVisible(!isVisible)
+		setIsVisibleWrite(!isVisibleWrite)
 	}
 	
 	const renderItem = ({ item }) => (

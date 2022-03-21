@@ -14,10 +14,10 @@ const Detail = ({ isVisible, setIsVisible }) => {
 		>
 			<View style={styles.dim}>
 				<View style={styles.overlay}>
-						<TouchableWithoutFeedback onPress={closePopup}>
-								<View/>
-						</TouchableWithoutFeedback>
-					<Animated.View style={{ ...styles.bottomSheetContainer }}>
+					<TouchableWithoutFeedback onPress={closePopup}>
+							<Text>Close</Text>
+					</TouchableWithoutFeedback>
+					<Animated.View>
 						<View style={{flex:1}}>
 							<View style={styles.title}>
 								<TextInput
@@ -37,7 +37,7 @@ const Detail = ({ isVisible, setIsVisible }) => {
 							</View>
 							<View style={styles.buttonArea}>
 								<View style={styles.button}>
-									<TouchableOpacity onPress={() => Alert.alert("취소 버튼이 눌렸습니다.")}>
+									<TouchableOpacity onPress={closePopup}>
 											<Text style={styles.textComponent}>Cancel</Text>
 									</TouchableOpacity>
 								</View>
