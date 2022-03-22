@@ -5,7 +5,7 @@ const CustomButton = ({ buttonBackgroudColor, buttonBorderColor, buttonBorderWid
 	return (
 		<View style={{ ...styles.button, backgroundColor: buttonBackgroudColor, borderColor :buttonBorderColor, borderWidth:buttonBorderWidth}}>
 				<Pressable onPress={() => onPress()}>
-				<Text style={{ ...styles.text, color: textColor }}>{title}</Text>
+					<Text style={{ ...styles.text, color: textColor }}>{title}</Text>
 				</Pressable>
 		</View>
 	)

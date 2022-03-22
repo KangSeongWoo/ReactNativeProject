@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
 import Write from './Write'
 import Detail from './Detail'
+import CustomModal from '../CustomComponent/CustomModal'
 import Item from './Item'
 import { dataList } from '../TempData/data'
 
@@ -31,8 +32,14 @@ const List = () => {
 			<TouchableOpacity style={styles.button} onPress={openPopup}>
 				<Icon name="ios-add-outline" size={30} color="white"/>
 			</TouchableOpacity>
-			<Write isVisible={isVisibleWrite} setIsVisible={setIsVisibleWrite} />
-			<Detail isVisible={isVisibleDetail} setIsVisible={setIsVisibleDetail} />
+			<CustomModal type="type3">
+				<Write isVisible={isVisibleWrite} setIsVisible={setIsVisibleWrite} />
+			</CustomModal>
+			<CustomModal type="type2">
+				<Detail isVisible={isVisibleDetail} setIsVisible={setIsVisibleDetail} />
+			</CustomModal>
+			{/* <Write isVisible={isVisibleWrite} setIsVisible={setIsVisibleWrite} />
+			<Detail isVisible={isVisibleDetail} setIsVisible={setIsVisibleDetail} /> */}
 		</View>
 	)
 }
