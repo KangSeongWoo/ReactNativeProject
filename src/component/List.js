@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Dimensions, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Dimensions, FlatList, TouchableOpacity, Text } from 'react-native';
 import Write from './Write'
 import Detail from './Detail'
 import CustomModal from '../CustomComponent/CustomModal'
@@ -23,12 +23,26 @@ const List = () => {
 	
 	return (
 		<View style={styles.contentView}>
-			<FlatList
-				style={styles.flatlist}
-				data={itemList}
-				renderItem={renderItem}
-				keyExtractor={item => item.id}
-			/>
+			
+			{itemList.length === 0 && (
+				<View style={{
+					height : '100%',
+					justifyContent: "center",
+					alignItems: 'center',
+				}}>
+					<Text>리스트가 없습니다.</Text>
+				</View>
+			)}
+			
+			{itemList.length !== 0 && (
+				<FlatList
+					style={styles.flatlist}
+					data={itemList}
+					renderItem={renderItem}
+					keyExtractor={item => item.id}
+				/>
+			)}
+			
 			<TouchableOpacity style={styles.button} onPress={openPopup}>
 				<Icon name="ios-add-outline" size={30} color="white"/>
 			</TouchableOpacity>
