@@ -4,11 +4,10 @@ import Write from './Write'
 import Detail from './Detail'
 import CustomModal from '../CustomComponent/CustomModal'
 import Item from './Item'
-import { dataList } from '../TempData/data'
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const List = () => {
+const List = (props) => {
 	const [isVisibleWrite, setIsVisibleWrite] = useState(false)
 	const [isVisibleDetail, setIsVisibleDetail] = useState(false)
 	const [itemList, setItemList] = useState(dataList);
@@ -24,7 +23,7 @@ const List = () => {
 	return (
 		<View style={styles.contentView}>
 			
-			{itemList.length === 0 && (
+			{/* {itemList.length === 0 && (
 				<View style={{
 					height : '100%',
 					justifyContent: "center",
@@ -41,7 +40,7 @@ const List = () => {
 					renderItem={renderItem}
 					keyExtractor={item => item.id}
 				/>
-			)}
+			)} */}
 			
 			<TouchableOpacity style={styles.button} onPress={openPopup}>
 				<Icon name="ios-add-outline" size={30} color="white"/>
@@ -52,8 +51,6 @@ const List = () => {
 			<CustomModal type="type2">
 				<Detail isVisible={isVisibleDetail} setIsVisible={setIsVisibleDetail} />
 			</CustomModal>
-			{/* <Write isVisible={isVisibleWrite} setIsVisible={setIsVisibleWrite} />
-			<Detail isVisible={isVisibleDetail} setIsVisible={setIsVisibleDetail} /> */}
 		</View>
 	)
 }
