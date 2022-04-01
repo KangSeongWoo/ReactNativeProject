@@ -1,18 +1,36 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { View, StyleSheet, TextInput, Alert,Text } from 'react-native';
 import CustomButton from '../CustomComponent/CustomButton'
 import CustomInput from '../CustomComponent/CustomInput'
-
-const Write = () => {
+import { connect } from 'react-redux';
+const Write = (props) => {
+    const [state, setState] = useState({
+        title: '',
+        content : '',
+    }) 
+    
+    const handleChangeInput = (key, value) => {
+        setState({
+            ...state,
+            [key] : value
+        })
+    }
+    
     return (
         <>
             <CustomInput
+                name='title'
                 placeholder='제목을 입력'
-                type='singleline'
+                type='multiline'
+                onChange={handleChangeInput}
+                size={4}
+                maxlength={1}
             />
             <CustomInput
+                name='content'
                 placeholder='내용을 입력'
                 type='multiline'
+                onChange={handleChangeInput}
                 size={15}
                 maxlength={100}
             />
@@ -38,8 +56,16 @@ const Write = () => {
     )
 } 
 
-const styles = StyleSheet.create({
-    
+const mapDispatchToProps = dispatch => ({
+    setMemoList: memoList => {
+        dispatch(actions.setMemoList(memoList))
+    }
 })
 
-export default Write
+const mapReduxStateToReactProps = (state) => {
+    return {
+        memoList: state.memoList
+    }
+}
+
+export default connect(mapReduxStateToReactProps, mapDispatchToProps)(Write)

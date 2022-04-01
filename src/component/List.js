@@ -4,13 +4,14 @@ import Write from './Write'
 import Detail from './Detail'
 import CustomModal from '../CustomComponent/CustomModal'
 import Item from './Item'
+import { connect } from 'react-redux';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const List = (props) => {
 	const [isVisibleWrite, setIsVisibleWrite] = useState(false)
 	const [isVisibleDetail, setIsVisibleDetail] = useState(false)
-	//const [itemList, setItemList] = useState(dataList);
+	const [itemList, setItemList] = useState(props.memoList);
 	
 	const openPopup = () => {
 		setIsVisibleWrite(!isVisibleWrite)
@@ -23,7 +24,7 @@ const List = (props) => {
 	return (
 		<View style={styles.contentView}>
 			
-			{/* {itemList.length === 0 && (
+			{itemList.length === 0 && (
 				<View style={{
 					height : '100%',
 					justifyContent: "center",
@@ -40,7 +41,7 @@ const List = (props) => {
 					renderItem={renderItem}
 					keyExtractor={item => item.id}
 				/>
-			)} */}
+			)}
 			
 			<TouchableOpacity style={styles.button} onPress={openPopup}>
 				<Icon name="ios-add-outline" size={30} color="white"/>
@@ -78,4 +79,16 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default List
+const mapDispatchToProps = dispatch => ({
+    setMemoList: memoList => {
+        dispatch(actions.setMemoList(memoList))
+    }
+})
+
+const mapReduxStateToReactProps = (state) => {
+    return {
+        memoList: state.memoList
+    }
+}
+
+export default connect(mapReduxStateToReactProps, mapDispatchToProps)(List)

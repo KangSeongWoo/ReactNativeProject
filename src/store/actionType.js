@@ -5,4 +5,5 @@
 */
 
 export const SET_MEMOLIST = 'SET_MEMOLIST';
+export const GET_MEMOLIST = 'GET_MEMOLIST';
 
