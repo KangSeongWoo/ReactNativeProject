@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { View, StyleSheet, TextInput, Alert,Text } from 'react-native';
 import CustomButton from '../CustomComponent/CustomButton'
 import CustomInput from '../CustomComponent/CustomInput'
+import * as actions from '../store/actionCreators'
 import { connect } from 'react-redux';
 const Write = (props) => {
     const [state, setState] = useState({
@@ -16,14 +17,18 @@ const Write = (props) => {
         })
     }
     
+    const saveTheContents = () => {
+        props.setMemoList([...props.memoList, {'title' : state.title, 'content' : state.content , 'date' : new Date().toDateString(),}])
+    }
+    
     return (
         <>
             <CustomInput
                 name='title'
                 placeholder='제목을 입력'
-                type='multiline'
+                type='singleline'
                 onChange={handleChangeInput}
-                size={4}
+                size={1}
                 maxlength={1}
             />
             <CustomInput
@@ -49,7 +54,7 @@ const Write = (props) => {
                     buttonBorderWidth = {0}
                     textColor='#FFFFFF'
                     title='Save'
-                    onPress={() => Alert.alert("저장 버튼이 눌렸습니다.")}
+                    onPress={saveTheContents}
                 />
             </View>
         </>                

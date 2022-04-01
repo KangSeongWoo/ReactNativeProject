@@ -28,10 +28,17 @@ const CustomInput = ({title, placeholder, type, size, maxlength, onChange }) => 
 	}
 	
 	const onValueChange = (value) => {
-		setState({
-			...state,
-			placeholder : ''
-		})
+		if (value != '') {
+			setState({
+				...state,
+				placeholder : ''
+			})
+		} else {
+			setState({
+				...state,
+				placeholder : placeholder
+			})
+		}
 		
 		onChange(title, value)
 	}
@@ -46,7 +53,7 @@ const CustomInput = ({title, placeholder, type, size, maxlength, onChange }) => 
 				multiline={multiline}
 				numberOfLines={size != undefined ? size : 0}
 				maxLength={maxlength != undefined ? maxlength : 0}
-				onChange={onValueChange}
+				onChangeText={onValueChange}
 				style={{
 					...styles.textinput,
           borderColor : borderColor,
