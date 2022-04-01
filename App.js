@@ -1,13 +1,9 @@
 import React from 'react';
 import Layout from './src/Template/Layout';
-import { connect } from 'react-redux'
 import 'react-native-gesture-handler';
 import * as actions from './src/store/actionCreators'
-import {createStore} from 'redux';
-import reducers from './src/store/reducers';
-import {Provider} from 'react-redux';
-
-const store = createStore(reducers);
+import {store} from './src/store/index'
+import {Provider, connect} from 'react-redux';
 
 const App = () => {
   return (

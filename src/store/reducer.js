@@ -1,4 +1,3 @@
-import * as Common from '../utils/Common';
 import * as types from './actionType';
 
 // 초기 상태를 정의합니다.

@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const List = (props) => {
 	const [isVisibleWrite, setIsVisibleWrite] = useState(false)
 	const [isVisibleDetail, setIsVisibleDetail] = useState(false)
-	const [itemList, setItemList] = useState(dataList);
+	//const [itemList, setItemList] = useState(dataList);
 	
 	const openPopup = () => {
 		setIsVisibleWrite(!isVisibleWrite)
