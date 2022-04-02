@@ -29,7 +29,7 @@ const Write = (props) => {
                 type='singleline'
                 onChange={handleChangeInput}
                 size={1}
-                maxlength={1}
+                maxlength={100}
             />
             <CustomInput
                 name='content'

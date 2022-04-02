@@ -11,20 +11,20 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const List = (props) => {
 	const [isVisibleWrite, setIsVisibleWrite] = useState(false)
 	const [isVisibleDetail, setIsVisibleDetail] = useState(false)
-	const [itemList, setItemList] = useState(props.memoList);
+	const [data, setData] = useState({})
 	
 	const openPopup = () => {
 		setIsVisibleWrite(!isVisibleWrite)
 	}
 	
 	const renderItem = ({ item }) => (
-		<Item title={item.title} content={item.content} date={item.date} setIsVisible={setIsVisibleDetail} />
+		<Item data={item} setData={setData} setIsVisible={setIsVisibleDetail} />
 	);
 	
 	return (
 		<View style={styles.contentView}>
 			
-			{itemList.length === 0 && (
+			{props.memoList.length === 0 && (
 				<View style={{
 					height : '100%',
 					justifyContent: "center",
@@ -34,10 +34,10 @@ const List = (props) => {
 				</View>
 			)}
 			
-			{itemList.length !== 0 && (
+			{props.memoList.length !== 0 && (
 				<FlatList
 					style={styles.flatlist}
-					data={itemList}
+					data={props.memoList}
 					renderItem={renderItem}
 					keyExtractor={item => item.id}
 				/>
@@ -50,7 +50,7 @@ const List = (props) => {
 				<Write isVisible={isVisibleWrite} setIsVisible={setIsVisibleWrite} />
 			</CustomModal>
 			<CustomModal type="type2">
-				<Detail isVisible={isVisibleDetail} setIsVisible={setIsVisibleDetail} />
+				<Detail isVisible={isVisibleDetail} data={data} setIsVisible={setIsVisibleDetail} />
 			</CustomModal>
 		</View>
 	)

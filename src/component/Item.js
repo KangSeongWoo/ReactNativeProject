@@ -1,15 +1,21 @@
 import React from 'react';
 import { Text,StyleSheet, View, TouchableOpacity  } from 'react-native';
-import { useNavigation } from '@react-navigation/native'
-const Item = ({ title, content, date,setIsVisible}) => {
+
+const Item = ({ data ,setData, setIsVisible}) => {
+
+  const onPress = () => {
+    setData(data);
+    setIsVisible(true)
+  }
+
   return (
-    <TouchableOpacity onPress={() => setIsVisible(true)}>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.item}>
         <View style={styles.title}>
-          <Text>{title}</Text>
-          <Text>{date}</Text>
+          <Text>{data.title}</Text>
+          <Text>{data.date}</Text>
         </View>
-        <Text numberOfLines={4} style={styles.content}>{content}</Text>
+        <Text numberOfLines={4} style={styles.content}>{data.content}</Text>
       </View>
     </TouchableOpacity>
 	)

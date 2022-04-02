@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { Text,TextInput,StyleSheet} from 'react-native';
 
-const CustomInput = ({title, placeholder, type, size, maxlength, onChange }) => {
+const CustomInput = ({name, placeholder, type, value, size, maxlength, onChange }) => {
 	const flag = type;
 	
 	const [state, setState] = useState({
@@ -40,23 +40,24 @@ const CustomInput = ({title, placeholder, type, size, maxlength, onChange }) => 
 			})
 		}
 		
-		onChange(title, value)
+		onChange(name, value)
 	}
 	
 	return (
 		<>
 			<Text style={styles.placeholder} >
-				{state.placeholder}
+				{(value == '' || value == undefined) ? state.placeholder : ''}
 			</Text>
 			<TextInput
 				editable
 				multiline={multiline}
+				value={value}
 				numberOfLines={size != undefined ? size : 0}
 				maxLength={maxlength != undefined ? maxlength : 0}
 				onChangeText={onValueChange}
 				style={{
 					...styles.textinput,
-          borderColor : borderColor,
+          			borderColor : borderColor,
 					borderRadius: borderRadius,
 				}}
       />
