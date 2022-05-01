@@ -1,12 +1,15 @@
-import React from 'react';
-import { Modal, Pressable, View, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Modal, Pressable, View, StyleSheet,KeyboardAvoidingView,Platform,Keyboard } from 'react-native';
 import { ifIphoneX, getBottomSpace } from 'react-native-iphone-x-helper'
 
 const CustomModal = (props) => {
 	// type 값에 따른 형태 추가
 	
 	const type = props.type;
-	
+	const [state, setState] = useState({
+		adjustSize : 0
+	})
+
 	let justifyContent = '';
 	let padding = 0
 	
@@ -23,6 +26,16 @@ const CustomModal = (props) => {
 		justifyContent = 'center'
 		padding = 10
 	}
+
+	useEffect(() => {
+		Keyboard.addListener("keyboardDidHide", () => {
+			setState({
+				...state,
+				adjustSize : -30
+			})
+			Keyboard.dismiss();
+		})
+	},[])
 	
 	const { children } = props;
 	
@@ -42,11 +55,17 @@ const CustomModal = (props) => {
 				transparent
 				statusBarTranslucent
 			>
-				<Pressable onPress={closePopup} style={{...styles.dimArea, justifyContent:justifyContent,padding:padding}}>
-						<View style={{...styles.iosVersion, backgroundColor: '#FFFFFF'}}>
-							{children} 
-						</View>
-				</Pressable>
+					<Pressable onPress={closePopup} style={{...styles.dimArea, justifyContent:justifyContent,padding:padding}}>
+						<KeyboardAvoidingView 
+							behavior={Platform.OS === "ios" ? "padding" : "position"}
+							keyboardVerticalOffset={Platform.select({android: state.adjustSize})}
+							enabled
+						>
+							<View style={{...styles.iosVersion, backgroundColor: '#FFFFFF'}}>
+								{children} 
+							</View>
+						</KeyboardAvoidingView>
+					</Pressable>
 			</Modal>
 		)
 	} else {

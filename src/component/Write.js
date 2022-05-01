@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { View, StyleSheet, TextInput, Alert,Text } from 'react-native';
+import { View, Alert } from 'react-native';
 import CustomButton from '../CustomComponent/CustomButton'
 import CustomInput from '../CustomComponent/CustomInput'
 import * as actions from '../store/actionCreators'
@@ -36,7 +36,7 @@ const Write = (props) => {
                 placeholder='내용을 입력'
                 type='multiline'
                 onChange={handleChangeInput}
-                size={15}
+                size={10}
                 maxlength={100}
             />
             <View style={{ justifyContent: 'space-between', flexDirection: 'row', height: 50 }}>

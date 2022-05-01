@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { StyleSheet, View, TextInput, Alert } from 'react-native';
+import { StyleSheet, View,Alert } from 'react-native';
 import CustomButton from '../CustomComponent/CustomButton'
 import CustomInput from '../CustomComponent/CustomInput'
 
